@@ -3,6 +3,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 module.exports = (app) => {
+    // Create and configure the Sequelize strategy:
     passport.use(new GoogleStrategy(
         {
             clientID: process.env.CLIENT_ID,
