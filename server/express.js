@@ -6,17 +6,24 @@ const express = require('express');
 const session = require('express-session');
 const app = express();
 
+// Add Body Parser to evaluate HTTP data:
+const bodyParser = require('body-parser');
+
 // Add Passport to the Node application:
 const passport = require('passport');
 
-// Use Express Session and refer to .env for session secret:
+// Initialize Express Session and refer to .env for session secret:
 app.use(session({ secret: process.env.SESSION_SECRET }));
 
-// Use Passport:
+// Initialize Passport:
 app.use(passport.initialize());
 app.use(passport.session()); // If not included, no sessions are created.
 
-// Require middleware:
+// Initialize Body Parser:
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// Require routes and other middleware:
 let middleware = require('./middleware/middleware');
 let routes = require('./routes/routes');
 middleware.install(app);
