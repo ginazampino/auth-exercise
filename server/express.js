@@ -14,6 +14,7 @@ app.use(session({ secret: process.env.SESSION_SECRET }));
 
 // Use Passport:
 app.use(passport.initialize());
+app.use(passport.session()); // If not included, no sessions are created.
 
 // Require middleware:
 let middleware = require('./middleware/middleware');

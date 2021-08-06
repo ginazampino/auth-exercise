@@ -22,13 +22,11 @@ const sequelize = new Sequelize(mariadb.database, mariadb.username, mariadb.pass
 
 // Define Sequelize models as they appear in the database:
 const Users = sequelize.define('users', {
-    email: Sequelize.STRING,
-    allowNull: false
+    email: Sequelize.STRING
 });
 
 const Profiles = sequelize.define('profiles', {
-    username: Sequelize.STRING,
-    allowNull: false
+    username: Sequelize.STRING
 });
 
 // Establish a connection to the database:
