@@ -10,8 +10,10 @@ const app = express();
 app.use(session({ secret: process.env.SESSION_SECRET }));
 
 // Require middleware:
-let router = require('./routes/router');
-router.install(app);
+let middleware = require('./middleware/middleware');
+let routes = require('./routes/routes');
+middleware.install(app);
+routes.install(app);
 
 // Start the Express server on the specified port:
 app.listen(process.env.PORT, () => {
