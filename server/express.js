@@ -6,7 +6,7 @@ const express = require('express');
 const session = require('express-session');
 const app = express();
 
-// Use Express Session within Express:
+// Use Express Session and refer to .env for session secret:
 app.use(session({ secret: process.env.SESSION_SECRET }));
 
 // Start the Express server on the specified port:
