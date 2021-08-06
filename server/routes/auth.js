@@ -78,4 +78,10 @@ module.exports = (app) => {
     app.get('/failure', (req, res) => {
         res.sendFile(path.resolve(__dirname, '../../client/failure.html'));
     });
+
+    app.post('/debug/post', authenticate, async (req, res) => {
+        await Profiles.create({
+            username: req.body.username
+        });
+    });
 };
