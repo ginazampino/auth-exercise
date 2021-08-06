@@ -16,6 +16,7 @@ function authenticate(req, res, next) {
         return next();
     } else {
         // If the session isn't authenticated, redirect:
+        console.log('Failed to authenticate with Google.')
         res.redirect('/');
     }
 };
@@ -77,8 +78,4 @@ module.exports = (app) => {
     app.get('/failure', (req, res) => {
         res.sendFile(path.resolve(__dirname, '../../client/failure.html'));
     });
-
-    app.get('/user', authenticate, (req, res) => {
-        res.send(req.user.emails[0].value)
-    })
 };
