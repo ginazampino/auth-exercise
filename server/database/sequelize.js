@@ -22,14 +22,24 @@ const sequelize = new Sequelize(mariadb.database, mariadb.username, mariadb.pass
 
 // Define Sequelize models as they appear in the database:
 const Users = sequelize.define('users', {
-    email: Sequelize.STRING
+    email: {
+        type: Sequelize.DataTypes.STRING,
+        validate: {
+            isEmail: true,
+            allowNull: false,
+            notEmpty: true,
+            unique: true
+        }
+    }
 });
 
 const Profiles = sequelize.define('profiles', {
     username: {
         type: Sequelize.DataTypes.STRING,
         validate: {
-            notEmpty: true
+            allowNull: false,
+            notEmpty: true,
+            unique: true
         }
     }
 });
