@@ -26,7 +26,12 @@ const Users = sequelize.define('users', {
 });
 
 const Profiles = sequelize.define('profiles', {
-    username: Sequelize.STRING
+    username: {
+        type: Sequelize.DataTypes.STRING,
+        validate: {
+            notEmpty: true
+        }
+    }
 });
 
 // Establish a connection to the database:

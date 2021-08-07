@@ -80,8 +80,11 @@ module.exports = (app) => {
     });
 
     app.post('/debug/post', authenticate, async (req, res) => {
+        console.log((req.body.username).length);
         await Profiles.create({
             username: req.body.username
+        }).catch((err) => {
+            console.log(err);
         });
     });
 };

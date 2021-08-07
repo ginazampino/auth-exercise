@@ -2,9 +2,8 @@
 require('dotenv').config();
 
 // Add Express and Express Session to the Node application:
-const express = require('express');
+const app = require('express')();
 const session = require('express-session');
-const app = express();
 
 // Add Body Parser to evaluate HTTP data:
 const bodyParser = require('body-parser');
