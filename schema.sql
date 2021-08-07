@@ -12,6 +12,8 @@ CREATE TABLE users (
 CREATE TABLE profiles (
     id                          INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     username                    VARCHAR(25) NOT NULL UNIQUE,
+    userId                      INT NOT NULL UNIQUE,
     createdAt                   DATETIME,
-    updatedAt                   DATETIME
+    updatedAt                   DATETIME,
+    FOREIGN KEY (userId) REFERENCES users(id)
 );
