@@ -22,13 +22,16 @@ const sequelize = new Sequelize(mariadb.database, mariadb.username, mariadb.pass
 
 // Define Sequelize models as they appear in the database:
 const Users = sequelize.define('users', {
+    id: {
+        type: Sequelize.DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
     email: {
         type: Sequelize.DataTypes.STRING,
         validate: {
             isEmail: true,
-            allowNull: false,
-            notEmpty: true,
-            unique: true
+            notEmpty: true
         }
     }
 });
@@ -37,12 +40,19 @@ const Profiles = sequelize.define('profiles', {
     username: {
         type: Sequelize.DataTypes.STRING,
         validate: {
-            allowNull: false,
-            notEmpty: true,
-            unique: true
+            notEmpty: true
+        }
+    },
+    userId: {
+        type: Sequelize.DataTypes.INTEGER,
+        references: {
+            model: Users,
+            key: Users.id
         }
     }
 });
+
+Profiles.belongsTo(Users);
 
 // Establish a connection to the database:
 let connectionPromise = sequelize
