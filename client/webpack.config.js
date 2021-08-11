@@ -7,22 +7,25 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
     entry: { // Configure Webpack entry points:
-        'main': path.join(__dirname, 'index')
+        main: path.join(__dirname, 'index')
     },
 
     // Configure Webpack output:
     output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, '../dist'),
-        publicPath: './'
+        path: path.resolve(__dirname, '../build'),
+        filename: 'bundle.js',
+        publicPath: '/'
     },
 
     module: {
         rules: [
             { // JavaScript loader:
                 test: /\.js$/,
-                exclude: /node_modules/,
                 loader: 'babel-loader'
+            },
+            { // Vue loader:
+                test: /\.vue$/,
+                loader: 'vue-loader'
             },
             { // CSS/SCSS loaders: 
                 test: /\.(css|scss)$/,
@@ -31,10 +34,6 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
-            },
-            { // Vue loader:
-                test: /\.vue$/,
-                loader: 'vue-loader'
             },
             { // File loader (images):
                 test: /\.(jpg|jpeg|png|gif|svg)$/,
@@ -56,26 +55,20 @@ module.exports = {
 
     // Initialize Webpack plugins:
     plugins: [
-        new VueLoaderPlugin(),
+        // Configure html-webpack-plugin:
         new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: path.join(__dirname, 'index.html'),
-            chunks: ['main']
-        })
+            template: path.resolve(__dirname, './index.html'),
+            filename: 'index.html'
+        }),
+        // Configure vue-loader:
+        new VueLoaderPlugin()
     ],
 
     // Define Webpack resolves:
     resolve: {
-        alias: {
-            '~': __dirname,
-            'root': __dirname,
-            'vue': 'vue/dist/vue.esm.js'
-        },
-        extensions: [
-            '.json',
-            '.js',
-            '.css',
-            '.scss'
-        ]
-    }
+        extensions: ['.json', '.js', '.vue', '.css', '.scss']
+    },
+
+    // Reduce the amount of information Webpack logs to the console:
+    stats: 'minimal'
 };

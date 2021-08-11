@@ -8,6 +8,8 @@ const express = require('express');
 const history = require('connect-history-api-fallback');
 
 module.exports.install = (app) => {
+    console.log('Middleware loaded.');
+
     // Import external separate configurations:
     require('./passport')(app);
     
@@ -16,6 +18,6 @@ module.exports.install = (app) => {
 
     // Enable Express to handle static files:
     app.use(express.static(
-        path.resolve(__dirname, '../../dist')
+        path.resolve(__dirname, '../../build')
     ));
-}
+};

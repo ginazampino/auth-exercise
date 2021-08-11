@@ -5,13 +5,11 @@ import './scss/index.scss';
 import App from './vue/App.vue';
 
 // Import Vue and Vue Router:
-import Vue from 'vue';
+import { createApp } from 'vue';
 import Router from './router';
 
 // Initialize and configure Vue:
-new Vue ({
-    components: { App },
-    el: '#app',
-    router: Router,
-    template: '<App></App>'
-});
+const app = createApp(App);
+
+// Mount the Vue application to an HTML element:
+app.mount('#app');

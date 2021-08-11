@@ -1,7 +1,5 @@
 <template>
     <main>
-        <h1>
-            Welcome to Vue
-        </h1>
+        This is Vue.js
     </main>
 </template>

@@ -20,12 +20,12 @@ app.use(passport.session()); // If not included, no sessions are created.
 
 // Initialize Body Parser:
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// Require routes and other middleware:
+// Require routes and middleware to Express application:
 let middleware = require('./middleware/middleware');
-let routes = require('./routes/routes');
 middleware.install(app);
+let routes = require('./routes/routes');
 routes.install(app);
 
 // Import Passport information:
