@@ -1,10 +1,27 @@
-// Add Sequelize to the application:
+/*
+
+    'Require' Statements
+    --------------------
+
+    Add Sequelize to the application
+    and import database credentials.
+
+*/
+
 const Sequelize = require('sequelize');
+const { mariadb } = require('./mariadb');
 
-// Import database information for use by Sequelize configuration:
-const { mariadb } = require('./database');
 
-// Create and configure Sequelize:
+/*
+
+    Configure Sequelize
+    -------------------
+    
+    Create and configure Sequelize
+    to connect to the database.
+
+*/
+
 const sequelize = new Sequelize(mariadb.database, mariadb.username, mariadb.password, {
     host: mariadb.host,
     dialect: 'mysql',
@@ -20,13 +37,26 @@ const sequelize = new Sequelize(mariadb.database, mariadb.username, mariadb.pass
     }
 });
 
-// Define Sequelize models as they appear in the database:
+/*
+
+    Sequelize Models
+    ----------------
+
+    Define sequelize models as they
+    appear in the database.
+
+*/
+
 const Users = sequelize.define('users', {
+
+    // Users table:
+
     id: {
         type: Sequelize.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
+
     email: {
         type: Sequelize.DataTypes.STRING,
         validate: {
@@ -34,15 +64,20 @@ const Users = sequelize.define('users', {
             notEmpty: true
         }
     }
+
 });
 
 const Profiles = sequelize.define('profiles', {
+
+    // Profiles table:
+
     username: {
         type: Sequelize.DataTypes.STRING,
         validate: {
             notEmpty: true
         }
     },
+
     userId: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
@@ -50,11 +85,21 @@ const Profiles = sequelize.define('profiles', {
             key: Users.id
         }
     }
+    
 });
 
-Profiles.belongsTo(Users);
+Profiles.belongsTo(Users); // FK
 
-// Establish a connection to the database:
+/*
+
+    MariaDB Connection
+    ------------------
+
+    Establish a connection to
+    the database.
+
+*/
+
 let connectionPromise = sequelize
     .authenticate()
     .then(() => {
@@ -65,7 +110,16 @@ let connectionPromise = sequelize
         console.error('Unable to establish connection to the Petz Hub database.', err);
     });
 
-// Export Sequelize for import by the application:
+/*
+
+    Export Sequelize
+    ----------------
+
+    Send Sequelize information for use
+    by the Express application.
+
+*/
+
 module.exports = {
     connect: connectionPromise,
     sequelize: sequelize,

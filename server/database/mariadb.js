@@ -1,3 +1,13 @@
+/*
+
+    Export Credentials 
+    ------------------
+
+    Send information required by Sequelize
+    to connect to the database.
+
+*/
+
 module.exports = {
     mariadb: {
         database: 'petzhub',
