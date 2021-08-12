@@ -51,7 +51,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 */
 
-let middleware = require('./middleware/middleware');
+let middleware = require('./middleware/manifest');
 middleware.install(app);
 
 let routes = require('./routes/manifest');

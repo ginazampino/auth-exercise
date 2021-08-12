@@ -1,15 +1,28 @@
 // Import all SCSS files through the root index:
 import './scss/index.scss';
 
-// Import the base Vue file for the application:
+/*
+
+    'Import' Statements
+    -------------------
+
+    Import Vue and Vue Router for use
+    by the Express application.
+
+*/
+
+import { createApp } from 'vue';
+import Router from './router.js';
 import App from './vue/App.vue';
 
-// Import Vue and Vue Router:
-import { createApp } from 'vue';
-import Router from './router';
+/*
 
-// Initialize and configure Vue:
-const app = createApp(App);
+    Initialize Vue3
+    ---------------
 
-// Mount the Vue application to an HTML element:
-app.mount('#app');
+    Create a Vue application, use Vue Router,
+    and mount the application to #app.
+
+*/
+
+createApp(App).use(Router).mount('#app');
