@@ -1,5 +1,5 @@
 <template>
     <div>
-        Sample vue
+        profile.vue
     </div>
 </template>

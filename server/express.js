@@ -69,7 +69,7 @@ require('./middleware/passport');
 
 */
 
-app.get('/', (req, res) => {
+app.get('/tet', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../../build/index.html'));
 });
 

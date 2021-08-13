@@ -1,12 +1,15 @@
 <template>
     <main>
-        This is Vue.js
-        <container-login></container-login>
+        <div id="nav">
+            <router-link to="/">Login</router-link> |
+            <router-link to="/profile">Profile</router-link>
+        </div>
+        <router-view/>
     </main>
 </template>
 
 <script>
-    import containerLogin from './containers/_login.vue';
+    import containerLogin from './containers/login.vue';
 
     export default {
         components: {

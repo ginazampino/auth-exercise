@@ -8,7 +8,47 @@
 
 */
 
-import VueRouter from 'vue-router';
+import { createWebHistory, createRouter } from 'vue-router';
+
+/*
+
+    Create Routes
+    -------------
+
+    Creates routes to be consumed by
+    Vue Router.
+
+*/
+
+import Login from './vue/containers/login.vue';
+
+const routes = [
+    {
+        path: '/',
+        name: 'Login',
+        component: Login
+    },
+    {
+        path: '/profile',
+        name: 'userProfile',
+        component: () => import('./vue/containers/profile.vue')
+    }
+]
+
+/*
+
+    Create Router
+    -------------
+
+    Create a router and send to it
+    the routes defined above.
+
+*/
+
+const router = createRouter({
+    history: createWebHistory(), // Needs to be a call.
+    routes
+});
 
 /*
 
@@ -20,12 +60,4 @@ import VueRouter from 'vue-router';
 
 */
 
-export default new VueRouter({
-    mode: 'history',
-    routes: [
-        {
-            path: '/sample',
-            component: require('./vue/containers/_sample.vue').default
-        }
-    ]
-});
+export default router;

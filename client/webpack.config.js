@@ -2,6 +2,7 @@
 const path = require('path');
 
 // Add Webpack plugins to Webpack:
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
@@ -55,7 +56,12 @@ module.exports = {
 
     // Initialize Webpack plugins:
     plugins: [
-        // Configure html-webpack-plugin:
+        // Remove yellow erros from devtools:
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: false,
+            __VUE_PROD_DEVTOOLS__: false
+        }),
+        // Set up html-webpack-plugin:
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './index.html'),
             filename: 'index.html'

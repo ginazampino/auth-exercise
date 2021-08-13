@@ -12,11 +12,11 @@ import './scss/index.scss';
 */
 
 import { createApp } from 'vue';
-import Router from './router.js';
+import router from './router.js';
 import App from './vue/App.vue';
 
 /*
-
+0
     Initialize Vue3
     ---------------
 
@@ -25,4 +25,4 @@ import App from './vue/App.vue';
 
 */
 
-createApp(App).use(Router).mount('#app');
+createApp(App).use(router).mount('#app');
