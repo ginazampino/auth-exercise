@@ -11,8 +11,7 @@ module.exports = {
         main: path.join(__dirname, 'index')
     },
 
-    // Configure Webpack output:
-    output: {
+    output: { // Configure Webpack output:
         path: path.resolve(__dirname, '../build'),
         filename: 'bundle.js',
         publicPath: '/'
@@ -56,7 +55,7 @@ module.exports = {
 
     // Initialize Webpack plugins:
     plugins: [
-        // Remove yellow erros from devtools:
+        // Remove yellow errors from devtools:
         new webpack.DefinePlugin({
             __VUE_OPTIONS_API__: false,
             __VUE_PROD_DEVTOOLS__: false
@@ -70,8 +69,7 @@ module.exports = {
         new VueLoaderPlugin()
     ],
 
-    // Define Webpack resolves:
-    resolve: {
+    resolve: { // Define Webpack resolves:
         extensions: ['.json', '.js', '.vue', '.css', '.scss']
     },
 
