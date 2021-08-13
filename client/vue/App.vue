@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    import containerLogin from './containers/login.vue';
+    import containerLogin from './pages/login.vue';
 
     export default {
         components: {

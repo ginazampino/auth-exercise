@@ -20,7 +20,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 */
 
-import Login from './vue/containers/login.vue';
+import Login from './vue/pages/login.vue';
 
 const routes = [
     {
@@ -31,7 +31,7 @@ const routes = [
     {
         path: '/profile',
         name: 'userProfile',
-        component: () => import('./vue/containers/profile.vue')
+        component: () => import('./vue/pages/profile.vue')
     }
 ]
 

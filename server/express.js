@@ -22,6 +22,7 @@ require('dotenv').config();
 
 const app = require('express')();
 const session = require('express-session');
+const history = require('connect-history-api-fallback');
 const bodyParser = require('body-parser'); // Evaluate HTTP req/res data.
 const passport = require('passport');
 
@@ -40,6 +41,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // Create sessions.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(history()); // Corrects HTTP errors when visiting Vue routes directly.
 
 /*
 
