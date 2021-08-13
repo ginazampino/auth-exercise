@@ -15,5 +15,5 @@
     //         'site-background': site_background,
     //         'site-navigation': site_navigation
     //     }
-    // };
+    // }; 
 </script>

@@ -1,1 +1,1 @@
-# petz-hub
+# Pez Hub

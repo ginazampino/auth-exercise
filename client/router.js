@@ -20,7 +20,7 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 */
 
-import Login from './vue/pages/unauth/login.vue';
+import Login from './vue/containers/unauth/login.vue';
 
 const routes = [
     {
@@ -31,7 +31,7 @@ const routes = [
             {
                 path: '/login/help',
                 name: 'Help',
-                component: () => import('./vue/pages/unauth/help.vue')
+                component: () => import('./vue/containers/unauth/help.vue')
             }
         ]
     }
