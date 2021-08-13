@@ -18,7 +18,7 @@ module.exports = {
     },
 
     module: {
-        rules: [
+        rules: [ 
             { // JavaScript loader:
                 test: /\.js$/,
                 loader: 'babel-loader'
@@ -47,7 +47,8 @@ module.exports = {
                 test: /\.(woff(2)?|ttf|eot)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'fonts/[name].[ext]'
+                    name: 'fonts/[name].[ext]',
+                    esModule: false
                 }
             }
         ]

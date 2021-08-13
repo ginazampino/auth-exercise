@@ -1,0 +1,8 @@
+.container {
+    &-yellow {
+        background-color: $color-theme-yellow;
+    }
+    &-blue {
+        background-color: $color-theme-blue;
+    }
+}

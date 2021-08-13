@@ -1,6 +1,9 @@
 <template>
-    <div class="login-container">
-        <header>
+    <div class="login">
+        <img :src="'/images/ph-logo.png'">
+    </div>
+
+            <!-- <header>
             <figure>
                 Petz Hub
             </figure>
@@ -8,6 +11,6 @@
         </header>
         <main>
             <router-view></router-view>
-        </main>
-    </div>
+        </main> -->
 </template>
+
