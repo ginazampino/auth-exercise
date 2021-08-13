@@ -1,0 +1,14 @@
+.login-container {
+    @include transition(width);
+    background-color: $color-theme-yellow;
+    border-right: rem(0px) solid $color-theme-yellow-dk;
+    height: 100%;
+    padding: rem(20px);
+    width: 100%;
+
+    @media (min-width: $sm) {
+        border-right: rem(5px) solid $color-theme-yellow-dk;
+        max-width: 100%;
+        width: rem(400px);
+    }
+}

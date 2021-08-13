@@ -60,7 +60,7 @@ router.use(authenticate);
 module.exports = (app) => {
     // Authenticate Google account and retrieve 
     // the user's email and profile information:
-    app.get('/login', passport.authenticate('google', {
+    app.get('/google/auth', passport.authenticate('google', {
         scope: ['email', 'profile']
     }));
 

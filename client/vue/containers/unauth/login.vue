@@ -1,18 +1,13 @@
 <template>
     <div class="login-container">
         <header>
-            Petz Hub
-            <form>
-                
-            </form>
-            <router-link to="/login/help">Help</router-link>
+            <figure>
+                Petz Hub
+            </figure>
+            <router-link to="/login/help"><u>Help</u></router-link>
         </header>
         <main>
             <router-view></router-view>
         </main>
     </div>
 </template>
-
-<script>
-
-</script>

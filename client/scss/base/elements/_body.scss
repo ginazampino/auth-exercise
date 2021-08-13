@@ -1,10 +1,9 @@
-html {
-    height: 100vh;
-}
-
 body {
+    background-color: $color-white;
     color: $color-black;
     font-family: $family-body;
     font-size: rem(16px);
+    height: 100%;
     margin: 0;
+    width: 100%;
 }

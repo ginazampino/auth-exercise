@@ -1,12 +1,23 @@
-// Misc:
-@import './misc/font';  // Font families
-@import './misc/var';   // Variables
-@import './misc/func';  // Functions
-@import './misc/mix';   // Mixins
-@import './misc/util';  // Utility classes
-@import './misc/el';    // Elements
+/*
 
-// Components:
+    Boilerplate
+    -----------
+    
+    Import sanitize.css as boilerplate.
 
-// Containers:
-@import './containers/login'; 
+*/
+
+@import './base/sanitize.css';
+
+/*
+
+    Style Manifests
+    ---------------
+    
+    Import all style manifests.
+
+*/
+
+@import './base/index';             // Base styles
+@import './base/elements/index';    // Base elements
+@import './theme/index';

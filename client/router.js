@@ -24,8 +24,12 @@ import Login from './vue/containers/unauth/login.vue';
 
 const routes = [
     {
+        path: '/',
+        redirect: { name: 'Login' }
+    },
+    {
         path: '/login',
-        name: 'Login',
+        name: 'Login', // Names must be unique.
         component: Login,
         children: [
             {
@@ -35,7 +39,7 @@ const routes = [
             }
         ]
     }
-]
+];
 
 /*
 
@@ -49,7 +53,8 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(), // Needs to be a call.
-    routes
+    routes: routes,
+    linkActiveClass: 'active'
 });
 
 /*

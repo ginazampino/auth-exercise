@@ -1,0 +1,18 @@
+/*
+
+    Media Query Breakpoints
+    -----------------------
+
+    Defined as variables based on Bootstrap 5
+    using a custom REM conversion mixin.
+
+    Source: https://getbootstrap.com/docs/5.0/layout/breakpoints/
+
+*/
+
+$xsm: rem(0px);
+$sm: rem(576px);
+$md: rem(768px);
+$lg: rem(992px);
+$xl: rem(1200px);
+$xxl: rem(1400px);

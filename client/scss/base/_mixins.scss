@@ -4,3 +4,7 @@
     justify-content: $justify-content;
     flex-direction: $flex-direction;
 }
+
+@mixin transition($rule) {
+    transition: $rule .2s ease-in-out;
+}
