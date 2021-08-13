@@ -26,6 +26,7 @@ const sequelize = new Sequelize(mariadb.database, mariadb.username, mariadb.pass
     host: mariadb.host,
     dialect: 'mysql',
     operatorsAliases: false,
+    port: 3303,
     pool: {
         max: 5,
         min: 0,
