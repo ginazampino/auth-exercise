@@ -1,19 +1,6 @@
 <template>
-    <main>
-        <div id="nav">
-            <router-link :to="{ name: 'Login' }">Login</router-link> |
-            <router-link to="/profile">Profile</router-link>
-        </div>
+    <div class="app-container">
+        <a name="top"></a>
         <router-view></router-view>
-    </main>
+    </div>
 </template>
-
-<script>
-    import containerLogin from './pages/login.vue';
-
-    export default {
-        components: {
-            'container-login': containerLogin
-        }
-    };
-</script>

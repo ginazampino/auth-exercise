@@ -20,18 +20,20 @@ import { createWebHistory, createRouter } from 'vue-router';
 
 */
 
-import Login from './vue/pages/login.vue';
+import Login from './vue/pages/unauth/login.vue';
 
 const routes = [
     {
-        path: '/',
+        path: '/login',
         name: 'Login',
-        component: Login
-    },
-    {
-        path: '/profile',
-        name: 'userProfile',
-        component: () => import('./vue/pages/profile.vue')
+        component: Login,
+        children: [
+            {
+                path: '/login/help',
+                name: 'Help',
+                component: () => import('./vue/pages/unauth/help.vue')
+            }
+        ]
     }
 ]
 
