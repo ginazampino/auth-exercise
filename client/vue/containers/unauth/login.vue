@@ -1,6 +1,7 @@
 <template>
     <div class="login">
-        <img :src="'/images/ph-logo.png'">
+        <!-- <img :src="'/images/ph-logo.png'"> -->
+        <router-link to="/home">Login</router-link>
     </div>
 
             <!-- <header>

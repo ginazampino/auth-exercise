@@ -36,16 +36,16 @@ const { Users, Profiles } = require('../../database/sequelize');
 
 */
 
-function authenticate(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    } else {
-        console.log('Failed to authenticate with Google.')
-        res.redirect('/');
-    }
-};
+// function authenticate(req, res, next) {
+//     if (req.isAuthenticated()) {
+//         return next();
+//     } else {
+//         console.log('Failed to authenticate with Google.')
+//         res.redirect('/');
+//     }
+// };
 
-router.use(authenticate);
+// router.use(authenticate);
 
 /*
 
@@ -58,16 +58,65 @@ router.use(authenticate);
 */
 
 module.exports = (app) => {
-    // Authenticate Google account and retrieve 
-    // the user's email and profile information:
-    app.get('/google/auth', passport.authenticate('google', {
+
+    app.get('/auth/google', passport.authenticate('google', {
         scope: ['email', 'profile']
     }));
 
+    app.get('/google/callback', passport.authenticate('google', {
+        successRedirect: '/debug/email',
+        failureRedirect: '/fail'
+    }));
+
+    app.get('/debug/email', (req, res) => {
+        res.json(req.user.emails[0].value)
+    });
+
+    app.get('/pass', (req, res) => {
+        res.send('Passed')
+    });
+
+    app.get('/fail', (req, res) => {
+        res.send('Failed')
+    });
+
+    // app.get('/auth/google', passport.authenticate('google', {
+    //     scope: ['email', 'profile']
+    // }));
+
+    // const backchannel = passport.authenticate('google', { failureRedirect: '/' });
+    
+    // app.get('/google/callback', backchannel, (req, res) => {
+    //     setTimeout(() => res.redirect('/home'), 3000);
+    // });
+
+    // app.get('/auth/user', (req, res) => {
+    //     res.json(req.user);
+    // });
+
+    // const authenticate = (req, res, next) => {
+    //     if (req.user) next();
+    //     else res.redirect('/');
+    // };
+
+    // const safeExecute = callback => {
+    //     return async (req, res, ...theRest) => {
+    //         try {
+    //             const result = callback(req, res, ...theRest);
+    //             if (result && typeof result.then === 'function') {
+    //                 await result;
+    //             }
+    //         } catch (err) {
+    //             console.error(err);
+    //             res.status(500).json({ err: err.message });
+    //         }
+    //     };
+    // };
+
     // After the user information is 
     // collected, redirect the user:
-    app.get('/google/callback', passport.authenticate('google', {
-        successRedirect: '/debug/pass',
-        failureRedirect: '/debug/fail'
-    }));
+    // app.get('/google/callback', passport.authenticate('google', {
+    //     successRedirect: '/debug/pass',
+    //     failureRedirect: '/debug/fail'
+    // }));
 }; 

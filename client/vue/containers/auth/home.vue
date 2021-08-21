@@ -1,8 +1,6 @@
 <template>
     <div class="site">
-        <transition name="fade" mode="out-in">
-            <router-view></router-view>
-        </transition>
+        <h1 style="margin: 30px;">Home</h1>
     </div>
 </template>
 
